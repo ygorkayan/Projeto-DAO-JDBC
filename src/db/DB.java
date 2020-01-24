@@ -25,7 +25,6 @@ public class DB {
 		}
 		
 		return conectar;
-		
 	}
 	
 	public static void fecharConnection() {

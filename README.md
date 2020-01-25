@@ -1,5 +1,5 @@
 # Projeto-DAO-JDBC
- Um pequeno projeto DAO com JDBC para estudos
+ Um pequeno projeto DAO com JDBC para estudos usando o MySql
 
 
 # Codigo usando para criar as Tabelas do db

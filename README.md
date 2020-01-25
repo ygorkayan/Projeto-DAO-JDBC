@@ -7,7 +7,7 @@
 <p>  Id int(11) NOT NULL AUTO_INCREMENT,</p>
 <p>  Name varchar(60) DEFAULT NULL,</p>
 <p>  PRIMARY KEY (Id));</p>
-
+<br>
 <p>CREATE TABLE seller (</p>
 <p>  Id int(11) NOT NULL AUTO_INCREMENT,</p>
 <p>  Name varchar(60) NOT NULL,</p>

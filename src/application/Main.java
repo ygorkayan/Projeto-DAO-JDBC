@@ -13,9 +13,12 @@ public class Main {
 		
 		SellerDAO sellerDao = DaoFactory.createSellerDao();
 		
-		Seller seller = sellerDao.findById(9);
-		seller.setName("Ygor Kayan");
-		sellerDao.update(seller);
+		
+		
+		
+		sellerDao.deleteById(9);
+		
+		
 		
 		
 		

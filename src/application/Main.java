@@ -1,28 +1,15 @@
 package application;
 
-import java.util.Date;
-import java.util.List;
 import model.dao.DaoFactory;
-import model.dao.SellerDAO;
+import model.dao.DepartmentDAO;
 import model.entities.Department;
-import model.entities.Seller;
 
 public class Main {
 
 	public static void main(String[] args) {
-		
-		SellerDAO sellerDao = DaoFactory.createSellerDao();
-		
-		
-		
-		
-		sellerDao.deleteById(9);
-		
-		
-		
-		
-		
-		
+
+		DepartmentDAO dd = DaoFactory.createDepartmentDao();
+		dd.insert(new Department(null, "TI"));
 
 	}
 }

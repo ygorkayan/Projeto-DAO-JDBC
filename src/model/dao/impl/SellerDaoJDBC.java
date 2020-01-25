@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -32,7 +33,39 @@ public class SellerDaoJDBC implements SellerDAO  {
 
 	@Override
 	public void insert(Seller obj) {
-		// TODO Auto-generated method stub
+		PreparedStatement st = null;
+		try {
+			st = con.prepareStatement(
+					"INSERT INTO seller "
+					+"(Name, Email, BirthDate, BaseSalary, DepartmentID) "
+					+ "VALUES"
+					+ "(?,?,?,?,?)", 
+					Statement.RETURN_GENERATED_KEYS);
+			
+			st.setString(1, obj.getName());
+			st.setString(2, obj.getEmail());
+			st.setDate(3, new java.sql.Date(obj.getAniversario().getTime()));
+			st.setDouble(4, obj.getSalarioBase());
+			st.setInt(5, obj.getDepartamento().getId());
+			
+			int linhas = st.executeUpdate();
+			
+			if(linhas > 0) {
+				ResultSet rs = st.getGeneratedKeys();
+				if(rs.next()) {
+					int id = rs.getInt(1);
+					obj.setId(1);
+				}
+				DB.fecharResultSet(rs);
+			} else {
+				throw new DbException("Deu ruim, nao salvou no banco de dados");
+			}
+			
+		} catch(SQLException e) {
+			throw new DbException(e.getMessage());
+		} finally {
+			DB.fecharStatement(st);
+		}
 		
 	}
 

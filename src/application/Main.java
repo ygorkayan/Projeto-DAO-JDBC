@@ -13,11 +13,12 @@ public class Main {
 		
 		SellerDAO sellerDao = DaoFactory.createSellerDao();
 		
-		Seller newSeller = new Seller(
-				null, "Ygor", "ygorkayan@gmail.com", 
-				new Date(), 1000.0 , new Department(2, null));
+		Seller seller = sellerDao.findById(9);
+		seller.setName("Ygor Kayan");
+		sellerDao.update(seller);
 		
-		sellerDao.insert(newSeller);
+		
+		
 		
 
 	}

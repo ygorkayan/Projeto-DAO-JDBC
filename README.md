@@ -3,19 +3,19 @@
 
 
 # Codigo usando para criar as Tabelas do db
-<p>CREATE TABLE department (
-  Id int(11) NOT NULL AUTO_INCREMENT,
-  Name varchar(60) DEFAULT NULL,
-  PRIMARY KEY (Id)
-);</p>
+<p>CREATE TABLE department (</p>
+<p>  Id int(11) NOT NULL AUTO_INCREMENT,</p>
+<p>  Name varchar(60) DEFAULT NULL,</p>
+<p>  PRIMARY KEY (Id)</p>
+<p>);</p>
 
-<p>CREATE TABLE seller (
-  Id int(11) NOT NULL AUTO_INCREMENT,
-  Name varchar(60) NOT NULL,
-  Email varchar(100) NOT NULL,
-  BirthDate datetime(6) NOT NULL,
-  BaseSalary double NOT NULL,
-  DepartmentId int(11) NOT NULL,
-  PRIMARY KEY (Id),
-  FOREIGN KEY (DepartmentId) REFERENCES department (id)
-);</p>
+<p>CREATE TABLE seller (</p>
+<p>  Id int(11) NOT NULL AUTO_INCREMENT,</p>
+<p>  Name varchar(60) NOT NULL,</p>
+<p>  Email varchar(100) NOT NULL,</p>
+<p>  BirthDate datetime(6) NOT NULL,</p>
+<p>  BaseSalary double NOT NULL,</p>
+<p>  DepartmentId int(11) NOT NULL,</p>
+<p>  PRIMARY KEY (Id),</p>
+<p>  FOREIGN KEY (DepartmentId) REFERENCES department (id)</p>
+<p>);</p>

@@ -3,6 +3,13 @@ package model.entities;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * Essa classe representa um vendedor, ao pegar Vendedor do bando de dados
+ * é essa classe que vai receber as informaçao e trasforma em um Objeto
+ * @author Ygor Kayan
+ *
+ */
+
 public class Seller implements Serializable{
 	
 	private static final long serialVersionUID = 1L;

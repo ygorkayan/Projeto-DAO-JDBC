@@ -12,6 +12,13 @@ import model.dao.SellerDAO;
 import model.entities.Department;
 import model.entities.Seller;
 
+/** 
+ * Class responsavel por fazer a interaçao com o banco de dados
+ * é nela que é feito o CRUD
+ * @author Ygor Kayan
+ *
+ */
+
 public class SellerDaoJDBC implements SellerDAO  {
 	
 	private Connection con;
@@ -40,7 +47,6 @@ public class SellerDaoJDBC implements SellerDAO  {
 
 	@Override
 	public Seller findById(Integer id) {
-		
 		PreparedStatement st = null;
 		ResultSet rs = null;
 		
@@ -55,23 +61,11 @@ public class SellerDaoJDBC implements SellerDAO  {
 			rs = st.executeQuery();
 			
 			if(rs.next()) {
-				Department dep = new Department();
-				dep.setId(rs.getInt("DepartmentId"));
-				dep.setNome(rs.getString("DepName"));
-				
-				Seller obj = new Seller();
-				obj.setId(rs.getInt("Id"));
-				obj.setName(rs.getString("Name"));
-				obj.setEmail(rs.getString("Email"));
-				obj.setSalarioBase(rs.getDouble("BaseSalary"));
-				obj.setAniversario(rs.getDate("BirthDate"));
-				obj.setDepartamento(dep);
-				
+				Department dep = InstantiateDepartment(rs);	
+				Seller obj = InstantiateSeller(rs, dep);
 				return obj;
 			}
-			
 			return null;
-			
 		} catch(SQLException e) {
 			throw new DbException(e.getMessage());
 		} finally {
@@ -84,6 +78,28 @@ public class SellerDaoJDBC implements SellerDAO  {
 	public List<Seller> FindAll() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	
+	
+	
+	private Seller InstantiateSeller(ResultSet rs, Department dep) throws SQLException {
+		Seller obj = new Seller();
+		obj.setId(rs.getInt("Id"));
+		obj.setName(rs.getString("Name"));
+		obj.setEmail(rs.getString("Email"));
+		obj.setSalarioBase(rs.getDouble("BaseSalary"));
+		obj.setAniversario(rs.getDate("BirthDate"));
+		obj.setDepartamento(dep);
+		return obj;
+	}
+
+	private Department InstantiateDepartment(ResultSet rs) throws SQLException {
+		Department dep = new Department();
+		dep.setId(rs.getInt("DepartmentId"));
+		dep.setNome(rs.getString("DepName"));
+		return dep;
+		
 	}
 
 }

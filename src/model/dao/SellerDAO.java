@@ -4,6 +4,13 @@ import java.util.List;
 
 import model.entities.Seller;
 
+/** 
+ * Nessa interface, define oque eu preciso que tenha em uma classe Vendedor que vai fazer o CRUD
+ * no banco de dados
+ * @author Ygor Kayan
+ *
+ */
+
 public interface SellerDAO {
 	
 	void insert(Seller obj);

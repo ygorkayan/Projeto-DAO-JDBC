@@ -2,6 +2,13 @@ package model.entities;
 
 import java.io.Serializable;
 
+/**
+ * Essa classe representa um departamento, ao pegar Departamento do bando de dados
+ * é essa classe que vai receber as informaçao e trasforma em um Objeto
+ * @author Ygor Kayan
+ *
+ */
+
 public class Department implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
